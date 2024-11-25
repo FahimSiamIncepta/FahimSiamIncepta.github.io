@@ -81,7 +81,8 @@
                 function requestSnapLogicUltra(url, token, params, action, action_fail, metadata) {
                     var xhr = new XMLHttpRequest();
                     xhr.open("POST", url, true);
-					xhr.setRequestHeader("Authorization", "Bearer wnHJpg27r6VIUuNaJUEdEBEJz4EkCVsx");
+		    xhr.setRequestHeader("Authorization", "Bearer wnHJpg27r6VIUuNaJUEdEBEJz4EkCVsx");
+		    xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
                             var responseJson = JSON.parse(xhr.responseText);
@@ -99,7 +100,7 @@
                         "token": token,
                         "params": params
                     };
-                    xhr.send(JSON.stringify(content));
+                    xhr.send(content);
                 }
 
                 // This is triggered when the user clicks "Submit". It sends the tweet to SnapLogic's Ultra Task and get back sentiment along with confidence level.
@@ -114,7 +115,7 @@
                     var url = document.getElementById("inputUltraURL").value;
                     var token = document.getElementById("inputToken").value;
                     var params = {
-                        "text": input
+                        text: input
                     };
 
                     // Handle response.
