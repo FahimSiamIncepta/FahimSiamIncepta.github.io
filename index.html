@@ -97,10 +97,10 @@
                         }
                     };
                     var content = {
-                        "token": token,
-                        "params": params
+                        token: token,
+                        params: params
                     };
-                    xhr.send(content);
+                    xhr.send(JSON.stringify(content));
                 }
 
                 // This is triggered when the user clicks "Submit". It sends the tweet to SnapLogic's Ultra Task and get back sentiment along with confidence level.
